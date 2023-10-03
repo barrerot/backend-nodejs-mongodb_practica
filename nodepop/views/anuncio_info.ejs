@@ -1,0 +1,21 @@
+<div class="productos">
+    <div class="producto">
+<img src="images/anuncios/<%- anuncio.foto %>" class="card-img-top">
+<div class="producto">
+    <img src="images/anuncios/<%- anuncio.foto %>" alt="<%= anuncio.nombre %>">
+    <h2><%= anuncio.nombre %></h2>
+            <p>Precio: $19.99</p>
+            <p>Tags: <span class="tag">Electrónica</span>, <span class="tag">Oferta</span></p>
+        </div>
+            <p>Venta/Compra: Venta</p>
+
+
+    <h5 >Nombre:<%= anuncio.nombre %></h5>
+    <p>Precio:<%= anuncio.precio %>€</p>
+    <p>Tags: <span class="tag"></span>, <span class="tag">Oferta</span></p>
+</div>
+<div class="card-footer">
+    <% anuncio.tags.forEach(function(tag){%>
+        <span class="tag"><%= tag %></span>
+    <%});%>
+</div>
