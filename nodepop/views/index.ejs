@@ -3,12 +3,51 @@
 <body>
     <%- include('header') %>
     
-    <div class="container">
-    
+    <div >
 
-    <h1><a id="NodePOP__api_REST_0"></a>NodePOP - api REST</h1> <p><img class="node" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="nodeJS"></p> <p>Práctica del módulo de Fundamentos de Backend con NodeJS, Express y MongoDB de <strong>KeepCoding</strong>.</p> <h2><a id="Sobre_la_API_5"></a>Sobre la API</h2> <p>Esta API ha sido creada para el Bootcamp Web de KeepCoding. Consiste en un backend construido con Express, NodeJS y MongoDB.</p> <p>Todas las consultas a los anuncios almacenados se pueden hacer mediante dos vias:</p> <ul> <li>Consultas directas por url, que devolveran una visa con los anuncios filtrados.</li> <li>Consultas a la api como servicio, que devolverá un fichero JSON.</li> </ul> <h3><a id="Parmetros_de_consulta_13"></a>Parámetros de consulta</h3> <p>Ambas vías de consulta admiten los mismos parámetros. Un ejemplo de consulta seria:</p> <pre><code>://nombrededominio/api/anuncios?name=reloj&amp;tags=lifestyle&amp;type=venta&amp;range=10-100&amp;limit=3&amp;skip=3&amp;sort=nombre </code></pre> <p>Los parámetros aceptados son:</p> <ul> <li><strong>Name</strong>: El nombre de un artículo. No distingue minúsculas de mayúsculas.</li> <li><strong>Tags</strong>: El nombre de un tag o categoría.</li> <li><strong>Type</strong>: Venta o Compra según el tipo de anuncio.</li> <li><strong>Range</strong>: Precio mínimo y máximo separado por un guión.</li> <li><strong>Limit</strong>: Número máximo de anuncios a devolver.</li> <li><strong>Skip</strong>: Número de anuncios a saltar. En caso de paginación.</li> <li><strong>Sort</strong>: Campo por el cuál queremos ordenar (nombre, precio). En negativo si querémos un orden descendente.</li> </ul> <h2><a id="Sobre_su_desarrollo_29"></a>Sobre su desarrollo</h2> <h3><a id="Instalacin_31"></a>Instalación</h3> <p>Para inciar la aplicación instala sus dependencias:</p> <pre><code class="language-shell">$ npm install </code></pre> <p>Con el módulo <code>dotenv</code> de node, las variables de entorno se cargan dinámicamente. Copia el archivo <code>.env.example</code> en <code>.env</code> y revisa los valores.</p> <h2><a id="Base_de_datos_40"></a>Base de datos</h2> <p>Para inicializar la base de datos con documentos de prueba ejecuta:</p> <pre><code class="language-shell">$ npm run install-db </code></pre>
+<h1>Nodepop</h1>
+Esta API ha sido Consiste en un backend construido con Express, NodeJS y MongoDB.
+<h2>Install</h2>
+Install dependencies:
+
+$ <code>npm install</code>
+Review database connection on /lib/connectMongoose.js (see "Start a MongoDB Server in MacOS or Linux")
+
+<h2>Load initial data:</h2>
+this command deletes all the data in the database and create default data
+$ <code>npm run init-db</code>
+<h2>Start</h2>
+In production:<br>
+
+<code>npm start</code>
+In development:<br>
+
+<code>npm run dev</code>
 
 
+<h2>Parámetros de consulta</h2>
+Cualquier solicitud de acceso a los anuncios almacenados puede efectuarse a través de dos métodos diferentes:
+
+Realizar consultas directas mediante una URL, lo que resultará en una página con los anuncios filtrados.
+Realizar consultas a la API como un servicio, lo que generará un archivo JSON como respuesta.
+Ambas vías de consulta admiten los mismos parámetros. Un ejemplo de consulta seria:
+
+<code>
+localhost:3000/anuncios?type=compra&type=venta&tags=work&range=10-100&limit=3&skip=3&sort=nombre</code>
+Los parámetros aceptados son:
+<ul>
+<li><b>Name</b>: El nombre de un artículo. No distingue minúsculas de mayúsculas.</li>
+<li></li><b>Tags</b>: El nombre de un tag o categoría.</li>
+<li></li><b>Type</b>: Venta o Compra según el tipo de anuncio.</li>
+<li></li><b>Range</b>: Precio mínimo y máximo separado por un guión.</li>
+<li></li><b>Limit</b>: Número máximo de anuncios a devolver.</li>
+<li></li><b>Skip</b>: Número de anuncios a saltar. En caso de paginación.</li>
+<li></li><b>Sort</b>: Campo por el cual se ordena . si ponemos un meno de lante el orden es descendente</li>
+</ul>
+<h2>END points </h2>
+<h2>GET /api/anuncios/</h2>
+Devuelve un JSON con los anuncios filtrados por los parámetros pasados
+<h2>GET /api/anuncios/tags</h2>
 
     </div>
 
