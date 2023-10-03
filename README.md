@@ -88,3 +88,38 @@ devuelve:
 ```json
 {"success":true,"result":["lifestyle","motor","work","tech","joyeria"]}
 ```
+### POST /api/anuncios/
+
+Introduce un nuevo artículo
+hay que pasarle los datos en el body con formatodata-urlencode
+
+ejemplo de un curl 
+curl --location 'http://localhost:3000/api/anuncios' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'nombre=Bicicleta' \
+--data-urlencode 'venta=true' \
+--data-urlencode 'precio=230.15' \
+--data-urlencode 'foto=bici.jpg' \
+--data-urlencode 'tags=["lifestyle", "motor"]'
+
+
+Devuelve un JSON con el anuncio insertado
+
+```json
+
+{
+    "success": true,
+    "result": {
+        "nombre": "Bicicleta",
+        "venta": true,
+        "precio": 230.15,
+        "foto": "bici.jpg",
+        "tags": [
+            "[\"lifestyle\", \"motor\"]"
+        ],
+        "_id": "651c5d26fe15adb73ed85c02",
+        "__v": 0
+    }
+}
+```
+
