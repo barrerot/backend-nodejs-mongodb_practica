@@ -1,22 +1,57 @@
-# NodePOP - api REST
 
-![nodeJS](https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg)
+# Nodepop
 
-Práctica del módulo de Fundamentos de Backend con NodeJS, Express y MongoDB de **KeepCoding**.
+Esta API ha sido Consiste en un backend construido con Express, NodeJS y MongoDB.
 
-## Sobre la API
+# Nodepop
 
-Esta API ha sido creada para el Bootcamp Web de KeepCoding. Consiste en un backend construido con Express, NodeJS y MongoDB.
+Website and API application.
 
-Todas las consultas a los anuncios almacenados se pueden hacer mediante dos vias:
-- Consultas directas por url, que devolveran una visa con los anuncios filtrados.
-- Consultas a la api como servicio, que devolverá un fichero JSON.
+## Install
 
-### Parámetros de consulta
+Install dependencies:
+
+```sh
+$ npm install
+```
+
+Review database connection on /lib/connectMongoose.js (see "Start a MongoDB Server in MacOS or Linux")
+
+Load initial data:
+
+```sh
+# this command deletes all the data in the database and create default data
+$ npm run init-db
+```
+
+## Start
+In production:
+
+```sh
+npm start
+```
+
+In development:
+
+```sh
+npm run dev
+```
+
+## Start a MongoDB Server in MacOS or Linux
+
+From the folder of the server:
+
+```sh
+./bin/mongod --dbpath ./data
+```
+
+## API Endpoints
+
+## ### Parámetros de consulta
 
 Ambas vías de consulta admiten los mismos parámetros. Un ejemplo de consulta seria:
 ```
-://nombrededominio/api/anuncios?name=reloj&tags=lifestyle&type=venta&range=10-100&limit=3&skip=3&sort=nombre
+localhost:3000/anuncios?type=compra&type=venta&tags=work&range=10-100&limit=3&skip=3&sort=nombre
 ```
 
 Los parámetros aceptados son:
@@ -26,22 +61,19 @@ Los parámetros aceptados son:
 - **Range**: Precio mínimo y máximo separado por un guión.
 - **Limit**: Número máximo de anuncios a devolver.
 - **Skip**: Número de anuncios a saltar. En caso de paginación.
-- **Sort**: Campo por el cuál queremos ordenar (nombre, precio). En negativo si querémos un orden descendente.
+- **Sort**: Campo por el cu
 
-## Sobre su desarrollo
+### GET /api/anuncios/
+### GET /api/anuncios/tags
 
-### Instalación
-
-Para inciar la aplicación instala sus dependencias:
-```shell
-$ npm install
+```json
+{
+    "results": [
+        {
+            "_id": "6511d779c0d44ab041a37592",
+            "name": "Smith",
+            "age": 24
+        }
+    ]
+}
 ```
-
-Con el módulo `dotenv` de node, las variables de entorno se cargan dinámicamente. Copia el archivo `.env.example` en `.env` y revisa los valores.
-
-## Base de datos
-Para inicializar la base de datos con documentos de prueba ejecuta:
-```shell
-$ npm run install-db
-```
-
